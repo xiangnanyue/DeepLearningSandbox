@@ -9,11 +9,11 @@ from keras.applications.inception_v3 import InceptionV3, preprocess_input
 from keras.models import Model
 from keras.layers import Dense, GlobalAveragePooling2D, Dropout
 from keras.preprocessing.image import ImageDataGenerator
-from keras.optimizers import SGD
+from keras.optimizers import SGD, Adam
 
 
 IM_WIDTH, IM_HEIGHT = 299, 299 #fixed size for InceptionV3
-NB_EPOCHS = 2
+NB_EPOCHS = 10
 BAT_SIZE = 64
 FC_SIZE = 100 #1024
 NB_IV3_LAYERS_TO_FREEZE = 172
@@ -34,8 +34,8 @@ def setup_to_transfer_learn(model, base_model):
   """Freeze all layers and compile the model"""
   for layer in base_model.layers:
     layer.trainable = False
-  model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
-
+  #model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
+  model.compile(optimizer=Adam(0.0001), loss='categorical_crossentropy', metrics=['accuracy'])
 
 def add_new_last_layer(base_model, nb_classes):
   """Add last layer to the convnet
