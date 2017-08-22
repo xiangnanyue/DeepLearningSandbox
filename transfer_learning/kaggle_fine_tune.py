@@ -13,9 +13,9 @@ from keras.optimizers import SGD
 
 
 IM_WIDTH, IM_HEIGHT = 299, 299 #fixed size for InceptionV3
-NB_EPOCHS = 3
-BAT_SIZE = 128
-FC_SIZE = 20 #1024
+NB_EPOCHS = 2
+BAT_SIZE = 64
+FC_SIZE = 1024 #1024
 NB_IV3_LAYERS_TO_FREEZE = 172
 
 # 计算train和validation两个文件夹下面的文件个数
@@ -128,19 +128,21 @@ def train(args):
     class_weight='auto')
 
   # fine-tuning, first try without this fine-tuning
-  #setup_to_finetune(model)
+  if args.fine_tune:
+    setup_to_finetune(model)
 
-  history_ft = model.fit_generator(
-    train_generator,
-    samples_per_epoch=nb_train_samples,
-    nb_epoch=nb_epoch,
-    validation_data=validation_generator,
-    nb_val_samples=nb_val_samples,
-    class_weight='auto')
+    history_ft = model.fit_generator(
+        train_generator,
+        samples_per_epoch=nb_train_samples,
+        nb_epoch=nb_epoch,
+        validation_data=validation_generator,
+        nb_val_samples=nb_val_samples,
+        class_weight='auto')
 
-  model.save(args.output_model_file)
+  if args.save_to_file:
+      model.save(args.output_model_file)
 
-  if args.plot:
+  if args.plot and args.fine_tune:
     plot_training(history_ft)
 
 
@@ -176,6 +178,8 @@ if __name__=="__main__":
   a.add_argument("--nb_epoch", default=NB_EPOCHS)
   a.add_argument("--batch_size", default=BAT_SIZE)
   a.add_argument("--output_model_file", default="inceptionv3-ft.model")
+  a.add_argument("--fine_tune", action="store_true")
+  a.add_argument("--save_to_file", action="store_true")
   a.add_argument("--plot", action="store_true")
 
   args = a.parse_args()
