@@ -1,0 +1,1 @@
+python fine-tune.py --train_dir=/tmp/kaggle_photos/raw-data/train/ --val_dir=/tmp/kaggle_photos/raw-data/validation/ --nb_epoch=2 --batch_size=32
