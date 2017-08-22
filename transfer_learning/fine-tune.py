@@ -125,8 +125,8 @@ def train(args):
     nb_val_samples=nb_val_samples,
     class_weight='auto')
 
-  # fine-tuning
-  setup_to_finetune(model)
+  # fine-tuning, first try without this fine-tuning
+  #setup_to_finetune(model)
 
   history_ft = model.fit_generator(
     train_generator,
