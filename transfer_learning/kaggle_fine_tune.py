@@ -51,7 +51,7 @@ def add_new_last_layer(base_model, nb_classes):
   x = GlobalAveragePooling2D()(x)
   x = Dense(FC_SIZE, activation='relu')(x) #new FC layer, random init
   x = Dropout(0.5)(x)
-  x = Dense(FC_SIZE, activation="relu")(x)
+  #x = Dense(FC_SIZE, activation="relu")(x)
   predictions = Dense(nb_classes, activation='softmax')(x) #new softmax layer
   model = Model(input=base_model.input, output=predictions)
   return model
