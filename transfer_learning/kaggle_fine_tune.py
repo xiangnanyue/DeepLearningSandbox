@@ -15,7 +15,7 @@ from keras.optimizers import SGD
 IM_WIDTH, IM_HEIGHT = 299, 299 #fixed size for InceptionV3
 NB_EPOCHS = 2
 BAT_SIZE = 64
-FC_SIZE = 1024 #1024
+FC_SIZE = 100 #1024
 NB_IV3_LAYERS_TO_FREEZE = 172
 
 # 计算train和validation两个文件夹下面的文件个数
@@ -51,7 +51,7 @@ def add_new_last_layer(base_model, nb_classes):
   x = GlobalAveragePooling2D()(x)
   x = Dense(FC_SIZE, activation='relu')(x) #new FC layer, random init
   x = Dropout(0.5)(x)
-  #x = Dense(FC_SIZE, activation="relu")(x)
+  x = Dense(FC_SIZE, activation="relu")(x)
   predictions = Dense(nb_classes, activation='softmax')(x) #new softmax layer
   model = Model(input=base_model.input, output=predictions)
   return model
@@ -140,7 +140,7 @@ def train(args):
         class_weight='auto')
 
   if args.save_to_file:
-      model.save(args.output_model_file)
+    model.save(args.output_model_file)
 
   if args.plot and args.fine_tune:
     plot_training(history_ft)
