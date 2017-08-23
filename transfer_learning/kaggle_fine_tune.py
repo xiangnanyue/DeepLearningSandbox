@@ -134,10 +134,10 @@ def train(args):
       shuffle=True,
       initial_epoch=0
   '''
-  #steps = int(nb_train_samples/nb_epoch)
-  steps = 10
-  #val_steps = nb_val_samples/2
-  val_steps = 10
+  steps = int(nb_train_samples/nb_epoch)
+  #steps = 10
+  val_steps = nb_val_samples/2
+  #val_steps = 1
   history_tl = model.fit_generator(
     train_generator,
     steps_per_epoch=steps,
@@ -154,10 +154,10 @@ def train(args):
     #print("start evaluation generator...")
     history_ft = model.fit_generator(
         train_generator,
-        samples_per_epoch=nb_train_samples,
-        nb_epoch=nb_epoch,
+        steps_per_epoch=steps,
+        epochs=nb_epoch,
         validation_data=validation_generator,
-        nb_val_samples=nb_val_samples,
+        validation_steps=val_steps,
         class_weight='auto')
     print("fine-tune finished!")
 
