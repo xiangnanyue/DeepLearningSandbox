@@ -134,7 +134,7 @@ def train(args):
       shuffle=True,
       initial_epoch=0
   '''
-  steps = int(nb_train_samples/nb_epoch)
+  steps = int(nb_train_samples/batch_size)
   #steps = 10
   val_steps = nb_val_samples/2
   #val_steps = 1
