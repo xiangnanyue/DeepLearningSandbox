@@ -30,7 +30,7 @@ def predict(model, img, target_size):
   x = np.expand_dims(x, axis=0)
   x = preprocess_input(x)
   preds = model.predict(x)
-  return preds
+  return preds[0]
 
 
 def plot_preds(image, preds):
