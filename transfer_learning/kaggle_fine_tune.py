@@ -73,7 +73,7 @@ def setup_to_finetune(model):
 
 
 def train(args):
-  print("args: fine_tune")
+  print("args: fine_tune", args.fine_tune)
   """Use transfer learning and fine-tuning to train a network on a new dataset"""
   nb_train_samples = get_nb_files(args.train_dir)
   nb_classes = len(glob.glob(args.train_dir + "/*"))
@@ -134,14 +134,16 @@ def train(args):
       shuffle=True,
       initial_epoch=0
   '''
-  steps = int(nb_train_samples/nb_epoch)
-
+  #steps = int(nb_train_samples/nb_epoch)
+  steps = 10
+  #val_steps = nb_val_samples/2
+  val_steps = 10
   history_tl = model.fit_generator(
     train_generator,
     steps_per_epoch=steps,
     epochs=nb_epoch,
     validation_data=validation_generator,
-    validation_steps=nb_val_samples/2,
+    validation_steps=val_steps,
     class_weight='auto')
 
   # fine-tuning, first try without this fine-tuning
