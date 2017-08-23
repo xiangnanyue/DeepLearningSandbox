@@ -73,6 +73,7 @@ def setup_to_finetune(model):
 
 
 def train(args):
+  print("args: fine_tune")
   """Use transfer learning and fine-tuning to train a network on a new dataset"""
   nb_train_samples = get_nb_files(args.train_dir)
   nb_classes = len(glob.glob(args.train_dir + "/*"))
@@ -119,18 +120,36 @@ def train(args):
   # transfer learning
   setup_to_transfer_learn(model, base_model)
 
+  '''self, generator,
+      steps_per_epoch,
+      epochs=1,
+      verbose=1,
+      callbacks=None,
+      validation_data=None,
+      validation_steps=None,
+      class_weight=None,
+      max_queue_size=10,
+      workers=1,
+      use_multiprocessing=False,
+      shuffle=True,
+      initial_epoch=0
+  '''
+  steps = int(nb_train_samples/nb_epoch)
+
   history_tl = model.fit_generator(
     train_generator,
-    nb_epoch=nb_epoch,
-    samples_per_epoch=nb_train_samples,
+    steps_per_epoch=steps,
+    epochs=nb_epoch,
     validation_data=validation_generator,
-    nb_val_samples=nb_val_samples,
+    validation_steps=nb_val_samples/2,
     class_weight='auto')
 
   # fine-tuning, first try without this fine-tuning
   if args.fine_tune:
+    print("set up fine-tune")
     setup_to_finetune(model)
 
+    #print("start evaluation generator...")
     history_ft = model.fit_generator(
         train_generator,
         samples_per_epoch=nb_train_samples,
@@ -138,6 +157,7 @@ def train(args):
         validation_data=validation_generator,
         nb_val_samples=nb_val_samples,
         class_weight='auto')
+    print("fine-tune finished!")
 
   if args.save_to_file:
     model.save(args.output_model_file)
