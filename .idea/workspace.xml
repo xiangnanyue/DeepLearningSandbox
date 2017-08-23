@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e213cd3e-8eb9-4442-b403-3f4ce6b9332b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/transfer_learning/kaggle_fine_tune.py" afterPath="$PROJECT_DIR$/transfer_learning/kaggle_fine_tune.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/transfer_learning/predict.py" afterPath="$PROJECT_DIR$/transfer_learning/predict.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,13 +16,25 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="kaggle_fine_tune.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="kaggle_fine_tune.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/transfer_learning/kaggle_fine_tune.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="136" column="41" lean-forward="false" selection-start-line="136" selection-start-column="41" selection-end-line="136" selection-end-column="41" />
+            <state relative-caret-position="260">
+              <caret line="219" column="14" lean-forward="true" selection-start-line="219" selection-start-column="14" selection-end-line="219" selection-end-column="14" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="predict.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/transfer_learning/predict.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,6 +104,7 @@
         <option value="$PROJECT_DIR$/transfer_learning/scratches.py" />
         <option value="$PROJECT_DIR$/transfer_learning/README.md" />
         <option value="$PROJECT_DIR$/transfer_learning/kaggle_fine_tune.py" />
+        <option value="$PROJECT_DIR$/transfer_learning/predict.py" />
       </list>
     </option>
   </component>
@@ -313,16 +327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/transfer_learning/predict.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/keras/engine/topology.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -410,10 +414,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/transfer_learning/kaggle_fine_tune.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="136" column="41" lean-forward="false" selection-start-line="136" selection-start-column="41" selection-end-line="136" selection-end-column="41" />
+        <state relative-caret-position="260">
+          <caret line="219" column="14" lean-forward="true" selection-start-line="219" selection-start-column="14" selection-end-line="219" selection-end-column="14" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer_learning/predict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

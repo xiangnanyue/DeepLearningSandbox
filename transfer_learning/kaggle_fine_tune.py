@@ -3,6 +3,7 @@ import sys
 import glob
 import argparse
 import matplotlib.pyplot as plt
+import gc
 
 from keras import __version__
 from keras.applications.inception_v3 import InceptionV3, preprocess_input
@@ -162,7 +163,9 @@ def train(args):
     print("fine-tune finished!")
 
   if args.save_to_file:
+    print("save to file...")
     model.save(args.output_model_file)
+    print("file saved to", args.output_model_file)
 
   if args.plot and args.fine_tune:
     plot_training(history_ft)
@@ -214,4 +217,5 @@ if __name__=="__main__":
     sys.exit(1)
 
   train(args)
+  gc.collect()
 
