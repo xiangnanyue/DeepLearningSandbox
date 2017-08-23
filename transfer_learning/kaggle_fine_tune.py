@@ -75,6 +75,8 @@ def setup_to_finetune(model):
 
 def train(args):
   print("args: fine_tune", args.fine_tune)
+  print("args: output_model_file", args.output_model_file)
+
   """Use transfer learning and fine-tuning to train a network on a new dataset"""
   nb_train_samples = get_nb_files(args.train_dir)
   nb_classes = len(glob.glob(args.train_dir + "/*"))
