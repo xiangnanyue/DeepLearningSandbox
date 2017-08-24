@@ -16,7 +16,7 @@ from keras.optimizers import SGD, Adam
 IM_WIDTH, IM_HEIGHT = 299, 299 #fixed size for InceptionV3
 NB_EPOCHS = 10
 BAT_SIZE = 64
-FC_SIZE = 50 #1024
+FC_SIZE = 20 #1024
 NB_IV3_LAYERS_TO_FREEZE = 172
 
 # 计算train和validation两个文件夹下面的文件个数
