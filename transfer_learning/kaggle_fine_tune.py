@@ -49,7 +49,7 @@ def add_new_last_layer(base_model, nb_classes):
     new keras model with last layer
   """
   x = base_model.output
-  x = GlobalAveragePooling2D()(x)
+  #x = GlobalAveragePooling2D()(x)
   x = Dense(FC_SIZE, activation='relu')(x) #new FC layer, random init
   x = Dropout(0.5)(x)
   x = Dense(FC_SIZE, activation="relu")(x)
