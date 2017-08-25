@@ -36,7 +36,7 @@ def setup_to_transfer_learn(model, base_model):
   for layer in base_model.layers:
     layer.trainable = False
   #model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
-  model.compile(optimizer=Adam(0.0001), loss='categorical_crossentropy', metrics=['accuracy'])
+  model.compile(optimizer=Adam(0.00005), loss='categorical_crossentropy', metrics=['accuracy'])
 
 def add_new_last_layer(base_model, nb_classes):
   """Add last layer to the convnet
