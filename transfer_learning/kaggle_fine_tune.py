@@ -53,7 +53,8 @@ def add_new_last_layer(base_model, nb_classes):
   print("base model output shape :",np.shape(x))
   #x = Convolution2D(32*2**1, 3, 3, activation='relu')(x)
   #print("convolution 2d shape :", np.shape(x))
-  x = GlobalMaxPool2D()(x)
+  x = GlobalAveragePooling2D()(x)
+  print("after pooling output shape :", np.shape(x))
   x = Dense(FC_SIZE, activation='relu')(x) #new FC layer, random init
   x = Dropout(0.5)(x)
   x = Dense(FC_SIZE, activation="relu")(x)
