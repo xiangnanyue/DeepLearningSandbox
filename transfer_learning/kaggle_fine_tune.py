@@ -54,7 +54,7 @@ def add_new_last_layer(base_model, nb_classes):
   #x = Convolution2D(32*2**1, 3, 3, activation='relu')(x)
   #print("convolution 2d shape :", np.shape(x))
   #x = GlobalAveragePooling2D()(x)
-  x = Flatten(input_shape=(BAT_SIZE,299,299,2048))(x)
+  x = Flatten(batch_input_shape=(299,299,2048))(x)
   print("after flatten output shape :", np.shape(x))
   x = Dense(FC_SIZE, activation='relu')(x) #new FC layer, random init
   x = Dropout(0.5)(x)
