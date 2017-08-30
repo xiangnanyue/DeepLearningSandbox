@@ -9,7 +9,7 @@ import numpy as np
 from keras import __version__
 from keras.applications.inception_v3 import InceptionV3, preprocess_input
 from keras.models import Model
-from keras.layers import Dense, GlobalAveragePooling2D, Dropout, Convolution2D, GlobalMaxPool2D
+from keras.layers import Dense, GlobalAveragePooling2D, Dropout, Convolution2D, GlobalMaxPool2D, Flatten
 from keras.preprocessing.image import ImageDataGenerator
 from keras.optimizers import SGD, Adam
 
@@ -53,8 +53,9 @@ def add_new_last_layer(base_model, nb_classes):
   print("base model output shape :",np.shape(x))
   #x = Convolution2D(32*2**1, 3, 3, activation='relu')(x)
   #print("convolution 2d shape :", np.shape(x))
-  x = GlobalAveragePooling2D()(x)
-  print("after pooling output shape :", np.shape(x))
+  #x = GlobalAveragePooling2D()(x)
+  x = Flatten()(x)
+  print("after flatten output shape :", np.shape(x))
   x = Dense(FC_SIZE, activation='relu')(x) #new FC layer, random init
   x = Dropout(0.5)(x)
   x = Dense(FC_SIZE, activation="relu")(x)
