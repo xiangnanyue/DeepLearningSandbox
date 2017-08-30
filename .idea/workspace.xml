@@ -15,11 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="kaggle_fine_tune.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="kaggle_fine_tune.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/transfer_learning/kaggle_fine_tune.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="57" column="52" lean-forward="true" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
+            <state relative-caret-position="207">
+              <caret line="56" column="10" lean-forward="false" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -37,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="core.py" pinned="false" current-in-tab="true">
         <entry file="file:///Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/keras/layers/core.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="483" column="25" lean-forward="false" selection-start-line="483" selection-start-column="25" selection-end-line="483" selection-end-column="25" />
+            <state relative-caret-position="555">
+              <caret line="328" column="8" lean-forward="false" selection-start-line="328" selection-start-column="8" selection-end-line="328" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -70,7 +70,7 @@
       <file leaf-file-name="pooling.py" pinned="false" current-in-tab="false">
         <entry file="file:///Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/keras/layers/pooling.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
+            <state relative-caret-position="22">
               <caret line="505" column="6" lean-forward="false" selection-start-line="505" selection-start-column="6" selection-end-line="505" selection-end-column="6" />
               <folding />
             </state>
@@ -133,6 +133,7 @@
       <find>use_multiprocessing=use_multiprocessing</find>
       <find>generator_output = next(output_generator)</find>
       <find>Conv</find>
+      <find>IM_WIDTH</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -501,14 +502,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/keras/layers/pooling.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="505" column="6" lean-forward="false" selection-start-line="505" selection-start-column="6" selection-end-line="505" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/transfer_learning/fine-tune.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -544,21 +537,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/keras/layers/core.py">
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/keras/layers/pooling.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="483" column="25" lean-forward="false" selection-start-line="483" selection-start-column="25" selection-end-line="483" selection-end-column="25" />
+        <state relative-caret-position="22">
+          <caret line="505" column="6" lean-forward="false" selection-start-line="505" selection-start-column="6" selection-end-line="505" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/transfer_learning/kaggle_fine_tune.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="57" column="52" lean-forward="true" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
+        <state relative-caret-position="207">
+          <caret line="56" column="10" lean-forward="false" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/keras/layers/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="328" column="8" lean-forward="false" selection-start-line="328" selection-start-column="8" selection-end-line="328" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
