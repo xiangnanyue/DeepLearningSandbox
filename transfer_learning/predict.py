@@ -48,7 +48,8 @@ def evaluation(model, test_set_dir, target_size):
   # get all the files under the directory
   files = [os.path.join(test_set_dir,f) for f in os.listdir(test_set_dir) if os.path.isfile(os.path.join(test_set_dir, f))]
   with open("./test_result.csv", "a") as f:
-    for img in files:
+    for fil in files:
+      img = Image.open(fil)
       prediction = predict(model, img, target_size)
       print(prediction)
       f.write(img+",")
