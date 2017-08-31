@@ -1,3 +1,4 @@
+import os
 import sys
 import argparse
 import numpy as np
@@ -33,6 +34,29 @@ def predict(model, img, target_size):
   return preds[0]
 
 
+def evaluation(model, test_set_dir, target_size):
+  """Run Model evaluation on test set
+  :param model:
+  :param test_set_dir:
+  :param target_size:
+  :return:
+  """
+  if not os.path.exists(test_set_dir):
+    print(test_set_dir, "doesn't exist.")
+    sys.exit(1)
+
+  # get all the files under the directory
+  files = [os.path.join(test_set_dir,f) for f in os.listdir(test_set_dir) if os.path.isfile(os.path.join(test_set_dir, f))]
+  with open("./test_result.csv", "a") as f:
+    for img in files:
+      prediction = predict(model, img, target_size)
+      print(prediction)
+      f.write(img+",")
+      for pred in prediction:
+        f.write(str(pred)+",")
+      f.write("\n")
+
+
 def plot_preds(image, preds):
   """Displays image and the top-n predicted probabilities in a bar graph
   Args:
@@ -55,6 +79,7 @@ def plot_preds(image, preds):
 if __name__=="__main__":
   a = argparse.ArgumentParser()
   a.add_argument("--image", help="path to image")
+  a.add_argument("--test_set_dir", help="path to test set")
   a.add_argument("--image_url", help="url to image")
   a.add_argument("--model")
   args = a.parse_args()
@@ -68,12 +93,16 @@ if __name__=="__main__":
     img = Image.open(args.image)
     preds = predict(model, img, target_size)
     print(preds)
-    plot_preds(img, preds)
+    #plot_preds(img, preds)
 
   if args.image_url is not None:
     response = requests.get(args.image_url)
     img = Image.open(BytesIO(response.content))
     preds = predict(model, img, target_size)
     print(preds)
-    plot_preds(img, preds)
+    #plot_preds(img, preds)
+
+  if args.test_set_dir is not None:
+    acc=evaluation(model, args.test_set_dir, target_size)
+    print(acc)
 
