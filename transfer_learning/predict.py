@@ -52,7 +52,7 @@ def evaluation(model, test_set_dir, target_size):
       img = Image.open(fil)
       prediction = predict(model, img, target_size)
       print(prediction)
-      f.write(img+",")
+      f.write(fil+",")
       for pred in prediction:
         f.write(str(pred)+",")
       f.write("\n")
