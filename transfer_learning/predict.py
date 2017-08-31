@@ -84,7 +84,7 @@ if __name__=="__main__":
   a.add_argument("--model")
   args = a.parse_args()
 
-  if args.image is None and args.image_url is None:
+  if args.image is None and args.image_url is None and args.test_set_dir is None:
     a.print_help()
     sys.exit(1)
 
